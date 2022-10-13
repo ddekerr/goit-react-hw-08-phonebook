@@ -9,12 +9,13 @@ export class App extends Component {
     contacts: [],
   };
 
-  addContact = newContactName => {
+  addContact = newContact => {
     this.setState(prevState => {
       return {
         contacts: prevState.contacts.concat({
           id: nanoid(),
-          name: newContactName,
+          name: newContact.name,
+          number: newContact.number,
         }),
       };
     });
@@ -24,7 +25,7 @@ export class App extends Component {
     return (
       <Wrapper>
         <ContactForm onSubmit={this.addContact} />
-        <ContactList contacts={this.state.contacts}/>
+        <ContactList contacts={this.state.contacts} />
       </Wrapper>
     );
   }
