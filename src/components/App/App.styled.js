@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
+import { theme } from 'theme';
 
 export const Wrapper = styled.div`
   height: 100vh;
-  display: flex;
-  font-size: 40;
-  color: #010101;
+  font-size: ${theme.fontSizes[4]}px;
+  color: ${theme.colors.text};
 `;
