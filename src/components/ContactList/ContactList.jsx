@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ContactListContainer,
   HeaderCell,
@@ -5,7 +6,6 @@ import {
   Cell,
   RemoveButton,
 } from './ContactList.styled';
-import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, remove }) => {
   return (
