@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ContactFormContainer } from './ContactForm.styled';
+import { ContactFormContainer, FormField, Input, Button } from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -25,9 +25,9 @@ export class ContactForm extends Component {
   render() {
     return (
       <ContactFormContainer onSubmit={this.handleSubmit}>
-        <label>
+        <FormField>
           <p>Name</p>
-          <input
+          <Input
             type="text"
             name="name"
             value={this.state.name}
@@ -36,10 +36,10 @@ export class ContactForm extends Component {
             required
             onChange={this.handleChange}
           />
-        </label>
-        <label>
+        </FormField>
+        <FormField>
           <p>Phone</p>
-          <input
+          <Input
             type="tel"
             name="number"
             value={this.state.number}
@@ -48,8 +48,8 @@ export class ContactForm extends Component {
             required
             onChange={this.handleChange}
           />
-        </label>
-        <button type="submit">Add contact</button>
+        </FormField>
+        <Button type="submit">Add contact</Button>
       </ContactFormContainer>
     );
   }

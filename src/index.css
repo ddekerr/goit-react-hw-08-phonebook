@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,7 +19,8 @@ code {
 }
 
 p,
-ul {
+ul,
+h2 {
   margin: 0;
   padding: 0;
 }

@@ -5,6 +5,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Section } from 'components/Section/Section';
+import { Notifiction } from 'components/Notification/Notification';
 
 const initialState = {
   contacts: [
@@ -73,10 +74,14 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter value={filter} onChange={this.filterChange} />
-          <ContactList
-            contacts={filteredContacts}
-            remove={this.removeContact}
-          />
+          {contacts.length > 0 ? (
+            <ContactList
+              contacts={filteredContacts}
+              remove={this.removeContact}
+            />
+          ) : (
+            <Notifiction message="There is no contact" />
+          )}
         </Section>
       </Wrapper>
     );
