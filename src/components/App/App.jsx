@@ -80,7 +80,7 @@ export class App extends Component {
               remove={this.removeContact}
             />
           ) : (
-            <Notifiction message="There is no contact" />
+            <Notification message="There is no contact" />
           )}
         </Section>
       </Wrapper>
