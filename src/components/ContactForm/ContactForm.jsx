@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import { ContactFormContainer, FormField, Input, Button } from './ContactForm.styled';
+import {
+  ContactFormContainer,
+  FormField,
+  Input,
+  Button,
+} from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
