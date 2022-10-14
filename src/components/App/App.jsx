@@ -21,7 +21,7 @@ export class App extends Component {
 
   addContact = newContact => {
     const isNotExist = this.state.contacts.every(
-      contact => contact.name !== newContact.name
+      contact => contact.name.toLowerCase() !== newContact.name.toLowerCase()
     );
 
     if (isNotExist) {
