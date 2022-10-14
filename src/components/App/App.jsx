@@ -4,6 +4,7 @@ import { Component } from 'react';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import { Section } from 'components/Section/Section';
 
 const initialState = {
   contacts: [
@@ -64,9 +65,19 @@ export class App extends Component {
 
     return (
       <Wrapper>
-        <ContactForm onSubmit={this.addContact} onChange={this.handleChange} />
-        <Filter value={filter} onChange={this.filterChange} />
-        <ContactList contacts={filteredContacts} remove={this.removeContact} />
+        <Section title="Phonebook">
+          <ContactForm
+            onSubmit={this.addContact}
+            onChange={this.handleChange}
+          />
+        </Section>
+        <Section title="Contacts">
+          <Filter value={filter} onChange={this.filterChange} />
+          <ContactList
+            contacts={filteredContacts}
+            remove={this.removeContact}
+          />
+        </Section>
       </Wrapper>
     );
   }
