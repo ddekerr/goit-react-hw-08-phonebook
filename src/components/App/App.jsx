@@ -23,15 +23,25 @@ export class App extends Component {
   };
 
   addContact = newContact => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.concat({
-          id: nanoid(),
-          name: newContact.name,
-          number: newContact.number,
-        }),
+    const isNotExist = this.state.contacts.every(
+      contact => contact.name !== newContact.name
+    );
+
+    if (isNotExist) {
+      const addedContact = {
+        id: nanoid(),
+        name: newContact.name,
+        number: newContact.number,
       };
-    });
+
+      this.setState(prevState => {
+        return {
+          contacts: prevState.contacts.concat(addedContact),
+        };
+      });
+    } else {
+      alert(`${newContact.name} is alredy in contacts.`);
+    }
   };
 
   render() {
