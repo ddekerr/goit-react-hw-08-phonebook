@@ -10,7 +10,6 @@ import {
 export class ContactForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
   };
 
   state = {

@@ -70,10 +70,7 @@ export class App extends Component {
     return (
       <Wrapper>
         <Section title="Phonebook">
-          <ContactForm
-            onSubmit={this.addContact}
-            onChange={this.handleChange}
-          />
+          <ContactForm onSubmit={this.addContact} />
         </Section>
         <Section title="Contacts">
           <Filter value={filter} onChange={this.filterChange} />
