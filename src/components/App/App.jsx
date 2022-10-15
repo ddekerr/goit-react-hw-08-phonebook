@@ -9,17 +9,29 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Notification } from 'components/Notification/Notification';
 
+const LOCALE_STORAGE_KEY = 'contacts';
+
 export class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const savedContacts = JSON.parse(localStorage.getItem(LOCALE_STORAGE_KEY));
+    if (savedContacts) {
+      this.setState({
+        contacts: savedContacts,
+      });
+    }
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+      localStorage.setItem(
+        LOCALE_STORAGE_KEY,
+        JSON.stringify(this.state.contacts)
+      );
     }
   }
 
