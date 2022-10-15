@@ -11,7 +11,7 @@ export const ContactListContainer = styled.table`
 `;
 
 export const Row = styled.tr`
-  :nth-of-type(2n) {
+  :nth-of-type(2n-1) {
     background-color: #eee;
   }
 `;
@@ -26,6 +26,10 @@ export const Cell = styled.td`
   :last-of-type {
     text-align: center;
   }
+`;
+
+export const HeaderRow = styled.tr`
+  border-bottom: 1px solid #999;
 `;
 
 export const HeaderCell = styled.th`
