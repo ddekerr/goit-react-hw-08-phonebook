@@ -10,11 +10,10 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Notification } from 'components/Notification/Notification';
 
 const LOCALE_STORAGE_KEY = 'contacts';
+const initialContacts =
+  JSON.parse(localStorage.getItem(LOCALE_STORAGE_KEY)) ?? [];
 
 export const App = () => {
-  const initialContacts =
-    JSON.parse(localStorage.getItem(LOCALE_STORAGE_KEY)) ?? [];
-
   const [contacts, setContacts] = useState(initialContacts);
   const [filter, setFilter] = useState('');
 
