@@ -19,12 +19,12 @@ export const ContactList = ({ contacts, remove }) => {
         </HeaderRow>
       </thead>
       <tbody>
-        {contacts.map(contact => (
-          <Row key={contact.id}>
-            <Cell>{contact.name}</Cell>
-            <Cell>{contact.number}</Cell>
+        {contacts.map(({id, name, number}) => (
+          <Row key={id}>
+            <Cell>{name}</Cell>
+            <Cell>{number}</Cell>
             <Cell>
-              <RemoveButton type="button" onClick={() => remove(contact.id)}>
+              <RemoveButton type="button" onClick={() => remove(id)}>
                 Delete
               </RemoveButton>
             </Cell>
