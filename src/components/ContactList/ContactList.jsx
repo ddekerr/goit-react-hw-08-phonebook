@@ -1,4 +1,6 @@
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { getContacts, getFilter } from 'redux/selectors';
+import { removeContact } from 'redux/actions';
 import {
   ContactListContainer,
   HeaderCell,
@@ -8,7 +10,15 @@ import {
   RemoveButton,
 } from './ContactList.styled';
 
-export const ContactList = ({ contacts, remove }) => {
+export const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <ContactListContainer>
       <thead>
@@ -19,12 +29,15 @@ export const ContactList = ({ contacts, remove }) => {
         </HeaderRow>
       </thead>
       <tbody>
-        {contacts.map(({id, name, number}) => (
+        {filteredContacts.map(({ id, name, number }) => (
           <Row key={id}>
             <Cell>{name}</Cell>
             <Cell>{number}</Cell>
             <Cell>
-              <RemoveButton type="button" onClick={() => remove(id)}>
+              <RemoveButton
+                type="button"
+                onClick={() => dispatch(removeContact(id))}
+              >
                 Delete
               </RemoveButton>
             </Cell>
@@ -33,15 +46,4 @@ export const ContactList = ({ contacts, remove }) => {
       </tbody>
     </ContactListContainer>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  remove: PropTypes.func.isRequired,
 };

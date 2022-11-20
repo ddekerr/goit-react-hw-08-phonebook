@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/actions';
 import { Formik } from 'formik';
 import {
   ContactFormContainer,
@@ -12,9 +13,11 @@ const initialValues = {
   number: '',
 };
 
-export const ContactForm = ({ onSubmit }) => {
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    onSubmit(values);
+    dispatch(addContact(values));
     resetForm();
   };
 
@@ -45,8 +48,4 @@ export const ContactForm = ({ onSubmit }) => {
       </ContactFormContainer>
     </Formik>
   );
-};
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
