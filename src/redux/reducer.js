@@ -1,27 +1,19 @@
-const initialState = {
-  contacts: [
-    { id: 0, name: 'Dina', number: '647632' },
-    { id: 1, name: 'Dima', number: '644342632' },
-  ],
-  filter: '',
-};
-
-const contactsReducer = (state = initialState, action) => {
+const contactsReducer = (state = [], action) => {
   switch (action.type) {
     case 'contacts/addContact': {
-      return {
-        ...state,
-        contacts: [...state.contacts, action.payload],
-      };
+      const isNotExist = state.every(
+        contact =>
+          contact.name.toLowerCase() !== action.payload.name.toLowerCase()
+      );
+
+      if (isNotExist) {
+        return [...state, action.payload];
+      }
+      return state;
     }
 
     case 'contacts/removeContact': {
-      return {
-        ...state,
-        contacts: state.contacts.filter(
-          contact => contact.id !== action.payload
-        ),
-      };
+      return state.filter(contact => contact.id !== action.payload);
     }
 
     default:
@@ -29,13 +21,10 @@ const contactsReducer = (state = initialState, action) => {
   }
 };
 
-const filterReducer = (state = initialState, action) => {
+const filterReducer = (state = '', action) => {
   switch (action.type) {
     case 'filter/changeFilter': {
-      return {
-        ...state,
-        filter: action.payload,
-      };
+      return action.payload;
     }
 
     default:
