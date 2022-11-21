@@ -11,7 +11,6 @@ import { Notification } from 'components/Notification/Notification';
 
 export const App = () => {
   const contacts = useSelector(getContacts);
-  console.log(contacts)
 
   return (
     <Wrapper>

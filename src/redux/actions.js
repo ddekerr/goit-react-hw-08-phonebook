@@ -9,20 +9,6 @@ export const addContact = newContact => {
       number: newContact.number,
     },
   };
-  // const isNotExist = contacts.every(
-  //   contact => contact.name.toLowerCase() !== newContact.name.toLowerCase()
-  // );
-
-  // if (isNotExist) {
-  //   const addedContact = {
-  //     id: nanoid(),
-  //     name: newContact.name,
-  //     number: newContact.number,
-  //   };
-  //   setContacts(prevContacts => prevContacts.concat(addedContact));
-  // } else {
-  //   alert(`${newContact.name} is alredy in contacts.`);
-  // }
 };
 
 export const removeContact = contactId => {
@@ -30,9 +16,6 @@ export const removeContact = contactId => {
     type: 'contacts/removeContact',
     payload: contactId,
   };
-  // setContacts(prevContacts =>
-  //   prevContacts.filter(contact => contact.id !== contactId)
-  // );
 };
 
 export const changeFilter = value => {
@@ -40,5 +23,4 @@ export const changeFilter = value => {
     type: 'filter/changeFilter',
     payload: value,
   };
-  // setFilter(e.target.value);
 };
