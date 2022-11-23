@@ -1,5 +1,6 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 import { Formik } from 'formik';
 import {
   ContactFormContainer,
@@ -15,10 +16,21 @@ const initialValues = {
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
-    resetForm();
+    const isNotExist = contacts.every(
+      contact => contact.name.toLowerCase() !== values.name.toLowerCase()
+    );
+
+    if (isNotExist) {
+      console.log('add new contact')
+      dispatch(addContact(values));
+      resetForm();
+      return;
+    }
+
+    console.log('contact is exist')
   };
 
   return (

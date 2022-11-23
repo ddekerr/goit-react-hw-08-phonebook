@@ -7,14 +7,7 @@ const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer(state, action) {
-        const isNotExist = state.every(
-          contact =>
-            contact.name.toLowerCase() !== action.payload.name.toLowerCase()
-        );
-
-        if (isNotExist) {
-          state.push(action.payload);
-        }
+        state.push(action.payload);
       },
       prepare(newContact) {
         return {
