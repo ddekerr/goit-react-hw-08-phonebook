@@ -5,9 +5,6 @@ export const ContactListContainer = styled.table`
 
   border: 1px solid #aaa;
   border-collapse: collapse;
-  border-style: hidden;
-  box-shadow: 0 0 0 1px #666;
-  border-radius: 10px;
 `;
 
 export const Row = styled.tr`
