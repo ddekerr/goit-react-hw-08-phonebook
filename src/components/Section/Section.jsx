@@ -17,3 +17,8 @@ Section.propTypes = {
     PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
   ]),
 };
+
+// Section.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   children: PropTypes.element.isRequired,
+// };

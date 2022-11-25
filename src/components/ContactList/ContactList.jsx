@@ -1,6 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
-import { removeContact } from 'redux/contactsSlice';
+import { useSelector } from 'react-redux';
+import { getFilter } from 'redux/selectors';
+// import { removeContact } from 'redux/contactsSlice';
 import {
   ContactListContainer,
   HeaderCell,
@@ -10,10 +10,8 @@ import {
   RemoveButton,
 } from './ContactList.styled';
 
-export const ContactList = () => {
-  const contacts = useSelector(getContacts);
+export const ContactList = ({ contacts }) => {
   const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -36,7 +34,7 @@ export const ContactList = () => {
             <Cell>
               <RemoveButton
                 type="button"
-                onClick={() => dispatch(removeContact(id))}
+                // onClick={() => dispatch(removeContact(id))}
               >
                 Delete
               </RemoveButton>

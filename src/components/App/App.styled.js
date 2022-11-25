@@ -7,3 +7,4 @@ export const Wrapper = styled.div`
   font-size: 24px;
   color: #000;
 `;
+

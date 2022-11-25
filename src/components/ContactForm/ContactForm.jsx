@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
 import { Formik } from 'formik';
 import {
@@ -15,7 +14,7 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
   const handleSubmit = (values, { resetForm }) => {
@@ -24,7 +23,7 @@ export const ContactForm = () => {
     );
 
     if (isNotExist) {
-      dispatch(addContact(values));
+      // dispatch(addContact(values));
       resetForm();
       return;
     }
