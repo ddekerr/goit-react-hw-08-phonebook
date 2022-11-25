@@ -24,13 +24,10 @@ export const ContactForm = () => {
     );
 
     if (isNotExist) {
-      console.log('add new contact')
       dispatch(addContact(values));
       resetForm();
       return;
     }
-
-    console.log('contact is exist')
   };
 
   return (
