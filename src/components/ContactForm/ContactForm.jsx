@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 import { Formik } from 'formik';
 import {
   ContactFormContainer,
@@ -7,6 +8,7 @@ import {
   Input,
   Button,
 } from './ContactForm.styled';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -14,7 +16,7 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
   const handleSubmit = (values, { resetForm }) => {
@@ -23,10 +25,12 @@ export const ContactForm = () => {
     );
 
     if (isNotExist) {
-      // dispatch(addContact(values));
+      dispatch(addContact(values));
       resetForm();
       return;
     }
+
+    toast.error('Contact is exist');
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { getFilter } from 'redux/selectors';
-// import { removeContact } from 'redux/contactsSlice';
+import { removeContact } from 'redux/operations';
+import { useDispatch } from 'react-redux';
 import {
   ContactListContainer,
   HeaderCell,
@@ -11,6 +12,7 @@ import {
 } from './ContactList.styled';
 
 export const ContactList = ({ contacts }) => {
+  const dispatch = useDispatch();
   const filter = useSelector(getFilter);
 
   const filteredContacts = contacts.filter(contact =>
@@ -34,7 +36,7 @@ export const ContactList = ({ contacts }) => {
             <Cell>
               <RemoveButton
                 type="button"
-                // onClick={() => dispatch(removeContact(id))}
+                onClick={() => dispatch(removeContact(id))}
               >
                 Delete
               </RemoveButton>
