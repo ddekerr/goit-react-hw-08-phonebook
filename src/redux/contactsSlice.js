@@ -23,7 +23,7 @@ const rejectedReducer = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
-const fulfilledReducer = (state, action) => {
+const fulfilledReducer = state => {
   state.isLoading = false;
   state.error = null;
 };
