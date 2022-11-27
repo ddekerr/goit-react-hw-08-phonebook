@@ -10,7 +10,7 @@ const fetchContactsSuccessReducer = (state, action) => {
   state.items = action.payload;
 };
 const addContactSuccessReducer = (state, action) => {
-  state.items.push(action.payload);
+  state.items.unshift(action.payload);
 };
 const removeContactSuccessReduser = (state, action) => {
   const index = state.items.findIndex(task => task.id === action.payload.id);
