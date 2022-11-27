@@ -34,9 +34,7 @@ export const App = () => {
         <Section title="Contacts">
           <Filter />
           {isLoading && <Puff />}
-          {contacts.length > 0 && !isLoading && (
-            <ContactList contacts={contacts} />
-          )}
+          {contacts.length > 0 && <ContactList contacts={contacts} />}
           {contacts.length === 0 && !isLoading && (
             <Notification message={notification} />
           )}
