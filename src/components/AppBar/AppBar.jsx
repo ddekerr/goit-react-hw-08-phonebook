@@ -5,11 +5,12 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/AuthNav/AuthNav';
 
 const AppBar = () => {
+  const isLogged = true;
+
   return (
     <Header>
       <Navigation />
-      <UserMenu />
-      <AuthNav />
+      {isLogged ? <UserMenu /> : <AuthNav />}
     </Header>
   );
 };
