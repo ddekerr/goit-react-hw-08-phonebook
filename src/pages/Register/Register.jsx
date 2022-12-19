@@ -1,4 +1,4 @@
-import { Container } from './RegisterPage.styled';
+import { Container } from './Register.styled';
 
 const RegisterPage = () => {
   return <Container>RegisterPage</Container>;

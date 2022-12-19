@@ -1,4 +1,4 @@
-import { Container } from './LoginPage.styled';
+import { Container } from './Login.styled';
 
 const LoginPage = () => {
   return <Container>LoginPage</Container>;

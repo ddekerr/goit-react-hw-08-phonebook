@@ -1,45 +1,25 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Puff } from 'react-loader-spinner';
-import { getContacts, getError, getIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-
-import { Wrapper } from './App.styled';
-
-import { Section } from 'components/Section/Section';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
-import { Notification } from 'components/Notification/Notification';
 import { ToastContainer } from 'react-toastify';
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+
+import Layout from 'components/Layout/Layout';
+
+const HomePage = lazy(() => import('../../pages/Home/Home'));
+const ContactsPage = lazy(() => import('../../pages/Contacts/Contacts'));
+const LoginPage = lazy(() => import('../../pages/Login/Login'));
+const RegisterPage = lazy(() => import('../../pages/Register/Register'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const error = useSelector(getError);
-  const isLoading = useSelector(getIsLoading);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  const notification = error || 'There is no contact';
-
   return (
     <>
-      <Wrapper>
-        <Section title="Phonebook">
-          <ContactForm />
-        </Section>
-        <Section title="Contacts">
-          <Filter />
-          {isLoading && <Puff />}
-          {contacts.length > 0 && <ContactList contacts={contacts} />}
-          {contacts.length === 0 && !isLoading && (
-            <Notification message={notification} />
-          )}
-        </Section>
-      </Wrapper>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />}></Route>
+          <Route path="contacts" element={<ContactsPage />}></Route>
+        </Route>
+        <Route path="/register" element={<RegisterPage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
+      </Routes>
       <ToastContainer />
     </>
   );
