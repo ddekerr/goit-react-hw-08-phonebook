@@ -16,9 +16,9 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
           <Route path="contacts" element={<ContactsPage />}></Route>
+          <Route path="register" element={<RegisterPage />}></Route>
+          <Route path="login" element={<LoginPage />}></Route>
         </Route>
-        <Route path="/register" element={<RegisterPage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
       </Routes>
       <ToastContainer />
     </>

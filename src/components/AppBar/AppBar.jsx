@@ -4,8 +4,12 @@ import Navigation from 'components/Navigation/Navigation';
 import UserMenu from 'components/UserMenu/UserMenu';
 import AuthNav from 'components/AuthNav/AuthNav';
 
+import { useNavigate } from 'react-router-dom';
+
 const AppBar = () => {
-  const isLogged = true;
+  const isLogged = false;
+  const navigate = useNavigate();
+  console.log(navigate);
 
   return (
     <Header>
