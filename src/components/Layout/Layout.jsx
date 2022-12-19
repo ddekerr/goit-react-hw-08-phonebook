@@ -6,7 +6,7 @@ import AppBar from 'components/AppBar/AppBar';
 
 const Layout = () => {
   return (
-    <Wrapper>
+    <Wrapper className='wrapper'>
       <AppBar />
       <Suspense fallback={false}>
         <Outlet />

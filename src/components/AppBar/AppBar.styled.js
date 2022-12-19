@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Header = styled.header`
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
