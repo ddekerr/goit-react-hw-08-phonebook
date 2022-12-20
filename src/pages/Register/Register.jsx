@@ -8,6 +8,8 @@ import {
   Button,
 } from 'components/Form.styled';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 
 const initialValues = {
   name: '',
@@ -16,8 +18,11 @@ const initialValues = {
 };
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    dispatch(register(values));
     resetForm();
   };
 
