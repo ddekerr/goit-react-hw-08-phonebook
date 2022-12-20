@@ -3,9 +3,9 @@ import { getFilter } from 'redux/selectors';
 import { removeContact } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import {
-  ContactListContainer,
-  HeaderCell,
+  ContactsTable,
   HeaderRow,
+  HeaderCell,
   Row,
   Cell,
   RemoveButton,
@@ -20,12 +20,12 @@ export const ContactList = ({ contacts }) => {
   );
 
   return (
-    <ContactListContainer>
+    <ContactsTable>
       <thead>
         <HeaderRow>
           <HeaderCell>Name</HeaderCell>
           <HeaderCell>Phone Number</HeaderCell>
-          <HeaderCell></HeaderCell>
+          <HeaderCell>Action</HeaderCell>
         </HeaderRow>
       </thead>
       <tbody>
@@ -44,6 +44,6 @@ export const ContactList = ({ contacts }) => {
           </Row>
         ))}
       </tbody>
-    </ContactListContainer>
+    </ContactsTable>
   );
 };

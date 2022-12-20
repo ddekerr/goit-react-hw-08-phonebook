@@ -1,4 +1,4 @@
-import { Header } from './AppBar.styled';
+import { Header, Container } from './AppBar.styled';
 
 import Navigation from 'components/Navigation/Navigation';
 import UserMenu from 'components/UserMenu/UserMenu';
@@ -9,8 +9,10 @@ const AppBar = () => {
 
   return (
     <Header>
-      <Navigation />
-      {isLogged ? <UserMenu /> : <AuthNav />}
+      <Container>
+        <Navigation />
+        {isLogged ? <UserMenu /> : <AuthNav />}
+      </Container>
     </Header>
   );
 };
