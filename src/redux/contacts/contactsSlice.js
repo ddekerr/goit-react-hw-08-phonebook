@@ -1,6 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, removeContact } from './operations';
-// import { nanoid } from 'nanoid';
 
 const operations = [fetchContacts, addContact, removeContact];
 const getOperation = type => operations.map(operation => operation[type]);

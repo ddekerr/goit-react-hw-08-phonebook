@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Puff } from 'react-loader-spinner';
-import { getContacts, getError, getIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
+import { getContacts, getError, getIsLoading } from 'redux/contacts/selectors';
+import { fetchContacts } from 'redux/contacts/operations';
 
 import { Wrapper } from './Contacts.styled';
 

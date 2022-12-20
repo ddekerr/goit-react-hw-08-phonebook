@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/selectors';
-import { removeContact } from 'redux/operations';
+import { getFilter } from 'redux/contacts/selectors';
+import { removeContact } from 'redux/contacts/operations';
 import { useDispatch } from 'react-redux';
 import {
   ContactsTable,
