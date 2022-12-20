@@ -8,18 +8,22 @@ import {
   Button,
 } from 'components/Form.styled';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/operations';
 
 const initialValues = {
   email: '',
   password: '',
 };
 
-const handleSubmit = (values, { resetForm }) => {
-  console.log(values);
-  resetForm();
-};
-
 const LoginPage = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(login(values));
+    resetForm();
+  };
+
   return (
     <Container>
       <Header>Login Form</Header>
