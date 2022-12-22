@@ -4,6 +4,8 @@ import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Layout from 'components/Layout/Layout';
+import PrivateRoute from 'components/Routes/PrivateRoute';
+import RestrictedRoute from 'components/Routes/RestrictedRoute';
 import { refresh } from 'redux/auth/operations';
 import { getIsRefreshing } from 'redux/auth/selectors';
 
@@ -28,9 +30,33 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />}></Route>
-            <Route path="contacts" element={<ContactsPage />}></Route>
-            <Route path="register" element={<RegisterPage />}></Route>
-            <Route path="login" element={<LoginPage />}></Route>
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<ContactsPage />}
+                />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<RegisterPage />}
+                />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<LoginPage />}
+                />
+              }
+            />
           </Route>
         </Routes>
       )}
